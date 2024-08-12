@@ -11,12 +11,10 @@ df_train= pd.read_csv('https://raw.githubusercontent.com/vidushidikshit/Machine_
 d={}
 d1={}
 
-
 All_rows_train,All_columns_train=df_train.shape
 
 #print(" All_rows_train :- "+str(All_rows_train))
 #print(" All_columns_train :- "+str(All_columns_train))
-
 
 df_unique_resources = df_test['RESOURCE'].unique()
 df_unique_resources.sort()
@@ -24,9 +22,7 @@ for i in range (len(df_unique_resources)):
     d[df_unique_resources[i]]= (df_train[df_train['RESOURCE'] == df_unique_resources[i]])
     d1[df_unique_resources[i]]= (df_test[df_test['RESOURCE'] == df_unique_resources[i]])
 
-
 def compare(f):
-
     dff_train = d[f]
     dff_test = d1[f]
     rows_test,columns_test = dff_test.shape
@@ -36,8 +32,8 @@ def compare(f):
     #print(" train rows :- "+str(rows_train))
     #print(" train columns :- "+str(columns_train))
 
-    matrix_frame_test = dff_test.as_matrix()
-    matrix_frame_train = dff_train.as_matrix()
+    matrix_frame_test = dff_test.values
+    matrix_frame_train = dff_train.values
 
     train_row_count = 0
     train_column_count = 0
@@ -62,10 +58,6 @@ def compare(f):
             print(((count/8)*each_train_row[0]))
 
     print(weight)
-
-
-
-
 
 #print(df_unique_resources)weight
 compare(38)
@@ -95,8 +87,8 @@ print(df_current)
 rows_test,columns_test = df_test.shape
 rows_current,columns_current = df_current.shape
 
-matrix_frame_test = df_test.as_matrix()
-matrix_frame_current = df_current.as_matrix()
+matrix_frame_test = df_test.values
+matrix_frame_current = df_current.values
 
 test_count = 0
 current_count = 0

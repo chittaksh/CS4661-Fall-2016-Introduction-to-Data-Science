@@ -9,7 +9,7 @@ print(df_train.head())
 ##Dataframe for test dataset.
 df_test = pd.read_csv('https://raw.githubusercontent.com/vidushidikshit/Machine_Learning/master/test_amazon.csv')
 df_test.insert(0, 'ACTION', 0)
-df_test = df_test.drop('id',1)
+df_test = df_test.drop('id',axis=1)
 print(df_test.head())
 
 ##Decalring Threshhold
